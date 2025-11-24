@@ -1,0 +1,12 @@
+target/
+.mvn/
+.m2/
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.log
+secrets/
+*.secret.yaml
+*.jar
+*.war

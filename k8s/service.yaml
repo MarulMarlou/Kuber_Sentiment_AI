@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment-api-service
+  namespace: sentiment-ai
+  labels:
+    app: sentiment-api
+  annotations:
+    description: "LoadBalancer service for Sentiment API"
+
+spec:
+  type: LoadBalancer
+  selector:
+    app: sentiment-api
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+    protocol: TCP
+  sessionAffinity: None
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sentiment-api-internal
+  namespace: sentiment-ai
+  labels:
+    app: sentiment-api
+    monitoring: enabled  # Добавляем label для мониторинга
+
+spec:
+  type: ClusterIP
+  selector:
+    app: sentiment-api
+  ports:
+  - name: http           # ВАЖНО: имя порта должно быть "http"
+    port: 8080
+    targetPort: 8080
+    protocol: TCP

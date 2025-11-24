@@ -1,0 +1,28 @@
+# Git
+.git
+.gitignore
+
+# Maven
+target/
+.m2
+.maven
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.classpath
+*.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docs
+README.md
+docs/
+
+# Tests
+src/test/
+*.test.java

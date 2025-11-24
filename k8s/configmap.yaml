@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sentiment-api-config
+  namespace: sentiment-ai
+  labels:
+    app: sentiment-api
+
+data:
+  # Конфигурация приложения
+  application.properties: |
+    spring.application.name=sentiment-api
+    server.port=8080
+    management.endpoints.web.exposure.include=health,metrics,prometheus
+    management.endpoint.health.show-details=always
+    management.metrics.export.prometheus.enabled=true
+    logging.level.root=INFO
+    logging.level.com.sentiment=DEBUG
+    server.compression.enabled=true
